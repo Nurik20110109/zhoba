@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="kk">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Транзакциялар бойынша салық тәуекелін талдау</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/build/pdf.min.js"></script>
+  </head>
+  <body>
+    <div class="app">
+      <header class="app-header">
+        <h1>Салықтық тәуекел анализаторы</h1>
+        <p class="subtitle">
+          Бұл оқу мақсатындағы демо‑қызмет. Нақты банк деректерін жүктемеңіз.
+        </p>
+      </header>
+
+      <main class="app-main">
+        <section class="panel">
+          <h2>Транзакция деректері</h2>
+          <p class="note">
+            Төменге транзакциялар JSON‑массивін енгізіңіз:
+            <code>
+              [{"amount": 1000, "type": "income", "description": "жалақы"}]
+            </code>
+          </p>
+
+          <textarea
+            id="transactions-input"
+            class="code-input"
+            rows="12"
+            spellcheck="false"
+          >[
+  { "amount": 120000, "type": "income", "description": "жалақы, оклад" },
+  { "amount": 90000, "type": "income", "description": "қызметтер үшін қолма-қол төлем" },
+  { "amount": 60000, "type": "income", "description": "cash кеңес беру үшін аударым" },
+  { "amount": 30000, "type": "expense", "description": "USDT сатып алу, Binance p2p" },
+  { "amount": 25000, "type": "expense", "description": "crypto айырбастау сервисіне аударым" },
+  { "amount": 15000, "type": "expense", "description": "таныс арқылы қолма-қол алу" }
+]</textarea>
+
+          <div class="actions">
+            <button id="analyze-btn">Талдау жасау</button>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>PDF үзінді көшірме</h2>
+          <p class="note">
+            Банк үзінді көшірмесінің PDF файлын жүктеңіз. Біз одан операцияларды автоматты түрде
+            тауып, сол ережелер бойынша тәуекелді бағалауға тырысамыз.
+          </p>
+
+          <input
+            type="file"
+            id="pdf-input"
+            accept="application/pdf"
+            class="file-input"
+          />
+
+          <div class="actions">
+            <button id="analyze-pdf-btn">PDF талдау</button>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Талдау нәтижесі</h2>
+          <div id="result" class="result">
+            <p>Нәтижені көру үшін «Талдау жасау» батырмасын басыңыз.</p>
+          </div>
+        </section>
+      </main>
+
+      <footer class="app-footer">
+        <p>
+          Бұл сайт құқықтық немесе салықтық кеңес бермейді.
+          Нақты салық міндеттемелерін бағалау үшін кәсіби мамандарға жүгініңіз.
+        </p>
+      </footer>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+  </html>
+
